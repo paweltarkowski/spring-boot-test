@@ -8,26 +8,26 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import contacts.model.Contact;
-import contacts.repository.ContactRepository;
+import contacts.model.entity.ContactDto;
+import contacts.service.ContactService;
 
 @Controller
 @RequestMapping("/")
 public class ContactController {
 
 	@Autowired
-	private ContactRepository contactRepository;
+	ContactService contactService;
 
 	@RequestMapping(method = RequestMethod.GET)
 	public String home(Map<String, Object> model) {
-		final List<Contact> contacts = contactRepository.findAll();
+		final List<ContactDto> contacts = contactService.findAll();
 		model.put("contacts", contacts);
 		return "home";
 	}
 
 	@RequestMapping(method = RequestMethod.POST)
-	public String submit(Contact contact) {
-		contactRepository.save(contact);
+	public String submit(ContactDto contact) {
+		contactService.save(contact);
 		return "redirect:/";
 	}
 }

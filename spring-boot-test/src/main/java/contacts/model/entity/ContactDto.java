@@ -1,11 +1,11 @@
-package contacts.model;
+package contacts.model.entity;
 
 import lombok.Getter;
 import lombok.Setter;
 
 @Setter
 @Getter
-public class Contact {
+public class ContactDto {
 	private Long id;
 	private String firstName;
 	private String lastName;
