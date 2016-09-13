@@ -16,7 +16,7 @@ import contacts.service.ContactService;
 public class ContactController {
 
 	@Autowired
-	ContactService contactService;
+	private ContactService contactService;
 
 	@RequestMapping(method = RequestMethod.GET)
 	public String home(Map<String, Object> model) {
