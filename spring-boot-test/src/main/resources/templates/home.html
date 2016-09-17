@@ -47,10 +47,10 @@
 				<h2>List of contacts:</h2>
 				<div class=" pre-scrollable">
 					<ul class="list-group" th:each="contact : ${contacts}"> 
-						<li class="list-group-item list-group-item-action list-group-item-info">First Name: <span
-							th:text="${contact.firstName}"> </span>, Last Name: <span
-							th:text="${contact.lastName}"> </span>, Phone:  <span
-							th:text="${contact.phoneNumber}"> </span>, Email:<span
+						<li class="list-group-item list-group-item-action list-group-item-info"><strong>First Name: </strong><span
+							th:text="${contact.firstName}"> </span><strong>, Last Name: </strong><span
+							th:text="${contact.lastName}"> </span><strong>, Phone:  </strong><span
+							th:text="${contact.phoneNumber}"> </span><strong>, Email:</strong><span
 							th:text="${contact.emailAddress}"> </span></li>
 							
 					</ul>
