@@ -1,37 +1,68 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-	<head>
-		<title>Spring boot - Contact list</title>
-		<link rel="stylesheet" th:href="@{/style.css}"/>
-	</head>
-	<body>
-		<h2>Spring boot - Contacts</h2>
-		<form method="POST">
-			<label for="firstName">First name:</label>
-			<input type="text" name="firstName"/><br/>
-			
-			<label for="lastName">Last name:</label>
-			<input type="text" name="lastName"/><br/>
-			
-			<label for="phoneNumber">Phone Number:</label>
-			<input type="text" name="phoneNumber"/><br/>
-			
-			<label for="emailAddress">Email Address:</label>
-			<input type="text" name="emailAddress"/><br/>
-			
-			<input type="submit"/>
-		</form>
-		
-		<p>List of contacts:</p>
-		<ul th:each="contact : ${contacts}">
-			<li>
-				<span th:text="${contact.firstName}"> First Name</span>
-				<span th:text="${contact.lastName}"> Last Name</span>:
-				<span th:text="${contact.phoneNumber}"> Phone:</span>,
-				<span th:text="${contact.emailAddress}"> Email:</span>
-			</li>
-		</ul>
-	
-	</body>
+<head>
+<title>Spring boot - Contact list</title>
+<link rel="stylesheet" th:href="@{/style.css}" />
+<!-- Bootstrap -->
+<link th:href="@{/bootstrap/dist/css/bootstrap.min.css}"
+	rel="stylesheet" />
+
+<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+<!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+	<div class="container">
+		<div class="row">
+			<div class="col-md-4">
+				<form method="POST" class="form-contact col-md-12">
+
+					<h2 class="form-signin-heading">Contact form:</h2>
+					<div class="form-group">
+						<label for="firstName" class="control-label">First name:</label> 
+						<input type="text" class="form-control" name="firstName" id="firstName" placeholder="First name" />
+					</div>
+					<div class="form-group">
+						<label for="lastName" class="control-label">Last name:</label>
+						<input type="text" class="form-control" name="lastName" placeholder="Last name"/>
+					</div>
+					<div class="form-group">
+						<label for="phoneNumber" class="control-label">Phone Number:</label> 
+						<input type="text" class="form-control" name="phoneNumber" placeholder="Phone Number"/>
+					</div>
+					<div class="form-group">
+						<label for="emailAddress" class="control-label">Email Address:</label> 
+						<input type="text" class="form-control"  name="emailAddress" placeholder="Email Address"/>
+					</div>
+					<div class="form-group">
+						<button class="btn btn-primary" type="submit">Add contact</button>
+					</div>
+					
+				</form>
+			</div>
+			<div class="col-md-7 col-md-offset-1">
+				<h2>List of contacts:</h2>
+				<div class=" pre-scrollable">
+					<ul class="list-group" th:each="contact : ${contacts}"> 
+						<li class="list-group-item list-group-item-action list-group-item-info">First Name: <span
+							th:text="${contact.firstName}"> </span>, Last Name: <span
+							th:text="${contact.lastName}"> </span>, Phone:  <span
+							th:text="${contact.phoneNumber}"> </span>, Email:<span
+							th:text="${contact.emailAddress}"> </span></li>
+							
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- Bootstrap core JavaScript
+    ================================================== -->
+	<!-- Placed at the end of the document so the pages load faster -->
+	<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+	<!-- TODO -->
+</body>
 
 </html>
